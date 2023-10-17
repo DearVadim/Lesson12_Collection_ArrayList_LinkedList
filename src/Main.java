@@ -6,7 +6,7 @@ public class Main {
 
         long StartTimeLinkedList = System.currentTimeMillis();
 
-        LinkedList<Integer> LLI = new LinkedList<Integer>();
+        LinkedList<Integer> LLI = new LinkedList<>();
 
         for(int i = 1; i <= 500000; i++){
             LLI.add(i);
@@ -18,7 +18,7 @@ public class Main {
 
         long StartTimeArrayList = System.currentTimeMillis();
 
-        ArrayList<Integer> ALI = new ArrayList<Integer>();
+        ArrayList<Integer> ALI = new ArrayList<>();
         ALI.ensureCapacity(500000);
 
         for(int i = 1; i <= 500000; i++){
@@ -31,7 +31,7 @@ public class Main {
 
         StartTimeArrayList = System.currentTimeMillis();
 
-        ArrayList<Integer> ALI2 = new ArrayList<Integer>();
+        ArrayList<Integer> ALI2 = new ArrayList<>();
 
         for(int i = 1; i <= 500000; i++){
             ALI2.add(i);
@@ -39,7 +39,7 @@ public class Main {
 
         System.out.printf("В ArrayList типа Integer добавлено %d записей без предв. объявления размера, потрачено времени, наносекунд: %d \n", ALI2.size(), System.currentTimeMillis() - StartTimeArrayList);
 
-        System.out.println("-----------------");
+        System.out.println("---------------------------------------");
 
         StartTimeLinkedList = System.currentTimeMillis();
 
@@ -75,5 +75,45 @@ public class Main {
         }
 
         System.out.printf("В ArrayList типа String добавлено %d записей без предв. объявления размера, потрачено времени, наносекунд: %d \n", ALS2.size(), System.currentTimeMillis() - StartTimeArrayList);
+
+        System.out.println("---------------------------------------");
+
+        Object obj = new Object();
+
+        StartTimeLinkedList = System.currentTimeMillis();
+
+        LinkedList<Object> LLO = new LinkedList<>();
+
+        for(int i = 1; i <= 500000; i++){
+            LLO.add(obj);
+        }
+
+        System.out.printf("В LinkedList типа Object добавлено %d записей без предв. объявления размера, потрачено времени, наносекунд: %d \n", LLO.size(), System.currentTimeMillis() - StartTimeLinkedList);
+
+        System.out.println("-----------------");
+
+        StartTimeArrayList = System.currentTimeMillis();
+
+        ArrayList<Object> ALO = new ArrayList<>();
+        ALS.ensureCapacity(500000);
+
+        for(int i = 1; i <= 500000; i++){
+            ALO.add(obj);
+        }
+
+        System.out.printf("В ArrayList типа Object добавлено %d записей с предв. объявлением размера, потрачено времени, наносекунд: %d \n", ALO.size(), System.currentTimeMillis() - StartTimeArrayList);
+
+        System.out.println("-----------------");
+
+        StartTimeArrayList = System.currentTimeMillis();
+
+        ArrayList<Object> ALO2 = new ArrayList<>();
+
+        for(int i = 1; i <= 500000; i++){
+            ALO2.add(obj);
+        }
+
+        System.out.printf("В ArrayList типа Object добавлено %d записей без предв. объявления размера, потрачено времени, наносекунд: %d \n", ALO2.size(), System.currentTimeMillis() - StartTimeArrayList);
+
     }
 }
